@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+	
 	router := http.NewServeMux()
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
